@@ -1,0 +1,16 @@
+<div class="field">
+  <label class="label">Search</label>
+  <p class="control has-icons-left">
+    <input class="input" type="text" ng-model="gifcat" ng-keypress="$event.keyCode == 13 && findGif(gifcat)">
+    <span class="icon is-small is-left">
+            <i class="fa fa-search"></i>
+            </span>
+  </p>
+</div>
+<div class="columns is-multiline imgrid">
+  <div class="column" ng-repeat="gif in gifs track by $index">
+    <figure class="image is-96x96">
+      <img ng-src="{{gif}}">
+    </figure>
+  </div>
+</div>

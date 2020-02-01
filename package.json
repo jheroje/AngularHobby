@@ -1,0 +1,11 @@
+{
+  "name": "hobby",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.7.9",
+    "angular-route": "1.7.9",
+    "bulma": "^0.4.1"
+  }
+}

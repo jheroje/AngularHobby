@@ -1,0 +1,52 @@
+<!-- Name -->
+<div class="field">
+  <label class="label">Name</label>
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="text" name="name" ng-model="new.name" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" ng-class="{'is-success': userForm.name.$valid, 'is-danger': userForm.name.$invalid && userForm.name.$dirty}">
+    <span class="icon is-small is-left">
+            <i class="fa fa-user"></i>
+          </span>
+    <span class="icon is-small is-right">
+            <i class="fa fa-check" ng-if="userForm.name.$valid"></i>
+            <i class="fa fa-warning" ng-if="userForm.name.$invalid && userForm.name.$dirty"></i>
+          </span>
+  </p>
+</div>
+<!-- Email -->
+<div class="field">
+  <label class="label">Email</label>
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" name="email" ng-model="new.email" ng-required="true" ng-class="{'is-success': userForm.email.$valid, 'is-danger': userForm.email.$invalid && userForm.email.$dirty}">
+    <span class="icon is-small is-left">
+            <i class="fa fa-envelope"></i>
+          </span>
+    <span class="icon is-small is-right">
+            <i class="fa fa-check" ng-if="userForm.email.$valid"></i>
+            <i class="fa fa-warning" ng-if="userForm.email.$invalid && userForm.email.$dirty"></i>
+          </span>
+  </p>
+</div>
+<!-- Phone -->
+<div class="field">
+  <label class="label">Phone</label>
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="text" name="phone" ng-model="new.phone" ng-pattern="/^[9|6|7][0-9]{8}$/" ng-required="true" ng-class="{'is-success': userForm.phone.$valid, 'is-danger': userForm.phone.$invalid && userForm.phone.$dirty}">
+    <span class="icon is-small is-left">
+            <i class="fa fa-phone"></i>
+          </span>
+    <span class="icon is-small is-right">
+            <i class="fa fa-check" ng-if="userForm.phone.$valid"></i>
+            <i class="fa fa-warning" ng-if="userForm.phone.$invalid && userForm.phone.$dirty"></i>
+          </span>
+  </p>
+</div>
+<!-- Photo -->
+<div class="field">
+  <label class="label">Photo</label>
+  <p class="control has-icons-left">
+    <input class="input" type="text" name="photo" ng-model="new.photo">
+    <span class="icon is-small is-left">
+            <i class="fa fa-picture-o"></i>
+          </span>
+  </p>
+</div>

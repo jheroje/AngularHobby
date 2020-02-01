@@ -1,0 +1,78 @@
+<div class="columns">
+  <!-- User Board -->
+  <div class="column is-two-thirds" id="board">
+    <div class="columns is-mobile is-multiline">
+      <!-- User Card -->
+      <div class="column is-half-mobile is-half-tablet is-one-third-desktop" ng-repeat="user in users track by $index">
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="http://bulma.io/images/placeholders/96x96.png" ng-src="{{user.photo}}" alt="Image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">{{user.name}}</p>
+                <p class="subtitle is-6">{{user.phone}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- links -->
+          <footer class="card-footer">
+            <a class="card-footer-item" href="/user/{{user.id}}">
+              <span class="icon is-small">
+                <i class="fa fa-eye"></i>
+              </span>
+            </a>
+            <a class="card-footer-item" ng-click="edit(user)">
+              <span class="icon is-small">
+                <i class="fa fa-pencil-square"></i>
+              </span>
+            </a>
+            <a class="card-footer-item" ng-click="remove(user)">
+              <span class="icon is-small">
+                <i class="fa fa-times"></i>
+              </span>
+            </a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- User Form -->
+  <div class="column box">
+    <div id="form">
+      <div class="tabs">
+        <ul>
+          <li ng-class="{'is-active': formView == 'new'}" ng-click="formView = 'new'"><a>New</a></li>
+          <li ng-class="{'is-active': formView == 'gifs'}" ng-click="formView = 'gifs'"><a>Gifs</a></li>
+          <li ng-class="{'is-active': formView == 'comics'}" ng-click="formView = 'comics'"><a>Comics</a></li>
+        </ul>
+      </div>
+      <form name="userForm" novalidate>
+        <!-- New user -->
+        <div ng-show="formView === 'new'" ng-include="'src/home/partials/new.html'"></div>
+        <!-- Gifs -->
+        <div ng-show="formView === 'gifs'" ng-include="'src/home/partials/gif.html'"></div>
+        <!-- Comics -->
+        <div ng-show="formView === 'comics'" ng-include="'src/home/partials/comic.html'"></div>
+        <!-- Buttons -->
+        <div class="field is-grouped" id="buttons">
+          <p class="control" ng-if="!editing">
+            <button class="button is-primary" ng-disabled="userForm.$invalid" ng-click="create(new)">Submit</button>
+          </p>
+          <p class="control" ng-if="editing">
+            <button class="button is-warning" ng-disabled="userForm.$invalid" ng-click="modify(new)">Modify</button>
+          </p>
+          <p class="control">
+            <button class="button is-dark" ng-click="reset()">Cancel</button>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

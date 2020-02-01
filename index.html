@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hobby">
+
+<head>
+  <title>Hobby</title>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="node_modules/bulma/css/bulma.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script>
+    (function() {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+
+  </script>
+</head>
+
+<body>
+  <!-- Router view -->
+  <div ng-view></div>
+
+  <!-- Angular -->
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angular-route/angular-route.min.js"></script>
+  <!-- App -->
+  <script src="src/app.js"></script>
+  <!-- Services -->
+  <script src="src/services/config.js"></script>
+  <script src="src/services/user.service.js"></script>
+  <script src="src/services/gif.service.js"></script>
+  <script src="src/services/comic.service.js"></script>
+  <!-- Controllers -->
+  <script src="src/home/home.controller.js"></script>
+  <script src="src/user/user.controller.js"></script>
+</body>
+
+</html>
